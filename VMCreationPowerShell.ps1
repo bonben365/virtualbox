@@ -1,5 +1,6 @@
 $menu = {
     Write-Host "
+    Select an option:
     1. Windows 10
     2. Windows 11
     3. Ubuntu Desktop 22
