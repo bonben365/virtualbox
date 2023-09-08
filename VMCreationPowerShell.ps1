@@ -13,10 +13,7 @@ Write-Host "Select an option and press Enter: "  -nonewline
 cls
 
 $vmCreation = {
-    if ((Get-Command VBoxManage.exe -ErrorAction SilentlyContinue) -eq $null) {
-        $env:path="C:\Program Files\Oracle\VirtualBox;$env:path"
-    }
-
+    $Env:Path += ";C:\Program Files\Oracle\VirtualBox\"
     $isoFile = "D:\ISOs\$osName$osNumber.iso"
     $vmName  = "$osName$osNumber-$(Get-random)"
     $vmPath= "$home\VirtualBox VMs\$vmName"
