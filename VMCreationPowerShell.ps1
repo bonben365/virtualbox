@@ -1,13 +1,13 @@
 $menu = {
-    Write-Host "
-    Select an option:
-    1. Windows 10
-    2. Windows 11
-    3. Ubuntu Desktop 22
-    4. Ubuntu Desktop 20
-    5. Ubuntu Desktop 18
-    6. Quit or Press Ctrl + C"
-    Write-Host " Select an option and press Enter: "  -nonewline
+Write-Host "
+Select an option:
+1. Windows 10
+2. Windows 11
+3. Ubuntu Desktop 22
+4. Ubuntu Desktop 20
+5. Ubuntu Desktop 18
+6. Quit or Press Ctrl + C"
+Write-Host "Select an option and press Enter: "  -nonewline
 }
 
 cls
@@ -44,9 +44,9 @@ Do {
     $select = Read-Host
     if ($select -eq 1) {$osName = 'Windows'; $osNumber ='10'; $ostype = 'Windows10_64'; $imageIndex='6'}
     if ($select -eq 2) {$osName = 'Windows'; $osNumber ='11'; $ostype = 'Windows10_64'; $imageIndex='6'}
-    if ($select -eq 3) {$osName = 'Ubuntu'; $osNumber ='22'; $ostype = 'Ubuntu_64'; $imageIndex='null'}
-    if ($select -eq 4) {$osName = 'Ubuntu'; $osNumber ='20'; $ostype = 'Ubuntu_64'; $imageIndex='null'}
-    if ($select -eq 5) {$osName = 'Ubuntu'; $osNumber ='18'; $ostype = 'Ubuntu_64'; $imageIndex='null'}
+    if ($select -eq 3) {$osName = 'Ubuntu'; $osNumber ='22'; $ostype = 'Ubuntu_64'; $imageIndex='1'}
+    if ($select -eq 4) {$osName = 'Ubuntu'; $osNumber ='20'; $ostype = 'Ubuntu_64'; $imageIndex='1'}
+    if ($select -eq 5) {$osName = 'Ubuntu'; $osNumber ='18'; $ostype = 'Ubuntu_64'; $imageIndex='1'}
 
     Switch ($select)
     {
