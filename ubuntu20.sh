@@ -15,28 +15,9 @@ $vramMb = 128 #Must be in range 0 … 256 (Mb) - GUI allows max of 128 only.
 $nofCPUs = 2
 
 VBoxManage createvm --name $vmName --ostype 'Ubuntu_64' --register
-
-VBoxManage modifyvm $vmName `
-  --memory $memSizeMb `
-  --vram $vramMb `
-  --cpus $nofCPUs `
-  --clipboard-mode bidirectional `
-  --graphicscontroller vboxsvga
-
+VBoxManage modifyvm $vmName --memory $memSizeMb --vram $vramMb --cpus $nofCPUs --clipboard-mode bidirectional --graphicscontroller vboxsvga
 VBoxManage createmedium --filename "$vmPath\virtualdisk.vdi" --size $hdSizeMb
 VBoxManage storagectl $vmName --name 'SATA Controller' --add sata --controller IntelAHCI
-VBoxManage storageattach $vmName `
---storagectl 'SATA Controller' `
---port 0 `
---device 0 `
---type hdd `
---medium "$vmPath\virtualdisk.vdi"
-
-VBoxManage unattended install $vmName `
---iso=$isoFile `
---user=$userName `
---password=$password `
---full-user-name=$fullUserName `
---install-additions `
-
+VBoxManage storageattach $vmName --storagectl 'SATA Controller' --port 0 --device 0 --type hdd --medium "$vmPath\virtualdisk.vdi"
+VBoxManage unattended install $vmName --iso=$isoFile --user=$userName --password=$password --full-user-name=$fullUserName --install-additions
 VBoxManage startvm $vmName
