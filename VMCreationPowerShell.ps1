@@ -33,7 +33,7 @@ $vmCreation = {
     VBoxManage createmedium --filename "$vmPath\virtualdisk.vdi" --size $hdSizeMb
     VBoxManage storagectl $vmName --name 'SATA Controller' --add sata --controller IntelAHCI
     VBoxManage storageattach $vmName --storagectl 'SATA Controller' --port 0 --device 0 --type hdd --medium "$vmPath\virtualdisk.vdi"
-    VBoxManage unattended install $vmName --iso=$isoFile --user=$userName --password=$password --full-user-name=$fullUserName --install-additions
+    VBoxManage unattended install $vmName --iso=$isoFile --user=$userName --password=$password --image-index=$imageIndex --full-user-name=$fullUserName --install-additions
     VBoxManage startvm $vmName
 }
  
@@ -41,11 +41,11 @@ Do {
     cls
     Invoke-Command $menu
     $select = Read-Host
-    if ($select -eq 1) {$osName = 'Windows'; $osNumber ='10'; $ostype = 'Windows10_64'}
-    if ($select -eq 2) {$osName = 'Windows'; $osNumber ='11'; $ostype = 'Windows10_64'}
-    if ($select -eq 3) {$osName = 'Ubuntu'; $osNumber ='22'; $ostype = 'Ubuntu_64'}
-    if ($select -eq 4) {$osName = 'Ubuntu'; $osNumber ='20'; $ostype = 'Ubuntu_64'}
-    if ($select -eq 5) {$osName = 'Ubuntu'; $osNumber ='18'; $ostype = 'Ubuntu_64'}
+    if ($select -eq 1) {$osName = 'Windows'; $osNumber ='10'; $ostype = 'Windows10_64'; $imageIndex='6'}
+    if ($select -eq 2) {$osName = 'Windows'; $osNumber ='11'; $ostype = 'Windows10_64'; $imageIndex='6'}
+    if ($select -eq 3) {$osName = 'Ubuntu'; $osNumber ='22'; $ostype = 'Ubuntu_64'; $imageIndex='null'}
+    if ($select -eq 4) {$osName = 'Ubuntu'; $osNumber ='20'; $ostype = 'Ubuntu_64'; $imageIndex='null'}
+    if ($select -eq 5) {$osName = 'Ubuntu'; $osNumber ='18'; $ostype = 'Ubuntu_64'; $imageIndex='null'}
 
     Switch ($select)
     {
