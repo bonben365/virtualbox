@@ -40,7 +40,7 @@ Do {
     Invoke-Command $menu
     $select = Read-Host
     if ($select -eq 1) {$osName = 'Windows'; $osNumber ='10'; $ostype = 'Windows10_64'; $imageIndex='6'}
-    if ($select -eq 2) {$osName = 'Windows'; $osNumber ='11'; $ostype = 'Windows10_64'; $imageIndex='6'}
+    if ($select -eq 2) {$osName = 'Windows'; $osNumber ='11'; $ostype = 'Windows11_64'; $imageIndex='6'}
     if ($select -eq 3) {$osName = 'Ubuntu'; $osNumber ='22'; $ostype = 'Ubuntu_64'; $imageIndex='1'}
     if ($select -eq 4) {$osName = 'Ubuntu'; $osNumber ='20'; $ostype = 'Ubuntu_64'; $imageIndex='1'}
     if ($select -eq 5) {$osName = 'Ubuntu'; $osNumber ='18'; $ostype = 'Ubuntu_64'; $imageIndex='1'}
